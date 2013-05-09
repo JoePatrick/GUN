@@ -1,25 +1,24 @@
-package Entities.Player
+package Entities.Player 
 {
-	import org.flixel.*;
-	
+import org.flixel.*;
+               
 	public class playerEntity extends FlxSprite
 	{
 		public function playerEntity(x:uint, y:uint)
 		{
 			super(x, y);
-			makeGraphic(10, 12, 0xffaa1111);
+			makeGraphic(10,12,0xffaa1111);
 			maxVelocity.x = 80;
 			maxVelocity.y = 200;
 			acceleration.y = 200;
 			drag.x = maxVelocity.x * 4;
 			x = 10;
-			y = 220;
+			y = 220; 
 		}
-		
-		override public function update():void;
-		{
-			
-		acceleration.x = 0;
+                               
+		override public function update():void
+		{             
+			acceleration.x = 0;
 		if(FlxG.keys.LEFT)
 			acceleration.x = -maxVelocity.x * 4;
 			
@@ -43,7 +42,7 @@ package Entities.Player
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = maxVelocity.x;
 			}
-			
+		
 			super.update();
 		}
 	}
