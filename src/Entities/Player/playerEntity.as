@@ -1,6 +1,7 @@
 package Entities.Player 
 {
 import org.flixel.*;
+import Entities.Levels.*;
                
 	public class playerEntity extends FlxSprite
 	{
@@ -44,6 +45,8 @@ import org.flixel.*;
 			}
 		
 			super.update();
+			
+			FlxG.collide(Registry.level1 ,Registry.player);
 		}
 	}
 

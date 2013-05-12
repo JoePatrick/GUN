@@ -1,14 +1,11 @@
-package Managers 
+package Entities.Levels 
 {
-	
-import org.flixel.*;
-
-	public class levelManager extends FlxTilemap
+ import org.flixel.*;
+ import Entities.Player.* ;
+	public class levelEntity extends FlxTilemap
 	{
-		
-		public function levelManager() 
+		public function levelEntity() 
 		{
-						
 			
 			var data:Array = new Array(
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
