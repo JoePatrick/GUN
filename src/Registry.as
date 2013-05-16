@@ -11,6 +11,8 @@ package
         
 		public static var level1:levelEntity;
 		
+		public static var levels:levelManager;
+		
 		public function Registry()
 		{
                                                
