@@ -27,7 +27,7 @@ import Entities.Levels.*;
 			acceleration.x = maxVelocity.x * 4;
 
 		
-		if (FlxG.keys.SPACE && (FlxG.keys.DOWN && isTouching(FlxObject.FLOOR)))
+		if (FlxG.keys.SPACE && isTouching(FlxObject.FLOOR))
 			{
 				velocity.y = -maxVelocity.y / 2;
 			}

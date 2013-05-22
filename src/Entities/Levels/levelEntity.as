@@ -6,6 +6,7 @@ package Entities.Levels
 	{
 		public function levelEntity() 
 		{
+			FlxG.bgColor = 0xffaaaaaa;
 			
 			var data:Array = new Array(
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

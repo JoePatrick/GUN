@@ -10,6 +10,8 @@ package GameStates
 		public function PlayState()
 		{
 			
+			
+			
 			Registry.levels = new levelManager();
 			add(Registry.levels);
 			
@@ -20,12 +22,14 @@ package GameStates
 			Registry.player = new playerEntity(FlxG.width / 2 - 12, FlxG.height - 40);
 			add(Registry.player);
 			
-			FlxG.bgColor = 0xffaaaaaa;
+			
 		}
                                
 		override public function update():void
 		{             
 			super.update();
+			
+			FlxG.bgColor = 0xffaaaaaa;
 			
 			FlxG.collide(Registry.level1,Registry.player);
 		}
