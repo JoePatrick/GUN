@@ -1,7 +1,8 @@
 package Entities.Player 
 {
+import org.flixel.*;
 
-	public class playerBullet extends FlxSprite;
+	public class playerBullet extends FlxSprite
 	{
 		public var speed:int = 200;
 		
@@ -23,6 +24,17 @@ package Entities.Player
 			exists = true;
 		}
 		
+		override public function update():void
+		{             
+			super.update();
+		
+			if (exists && y < -10)
+			{
+				exists = false;
+			}
+		
+		}
+		
 	}
-
+	
 }

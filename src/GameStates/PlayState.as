@@ -10,7 +10,8 @@ package GameStates
 		public function PlayState()
 		{
 			
-			
+			Registry.bullets = new bulletManager();     
+			add(Registry.bullets);
 			
 			Registry.levels = new levelManager();
 			add(Registry.levels);

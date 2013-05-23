@@ -43,6 +43,11 @@ import Entities.Levels.*;
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = maxVelocity.x;
 			}
+			
+		 if (FlxG.keys.justPressed("X"))
+			{
+				Registry.bullets.fire(x + 9, y - 6);
+			}	
 		
 			super.update();
 			
