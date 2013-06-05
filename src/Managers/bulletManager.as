@@ -7,7 +7,7 @@ import org.flixel.*;
 	public class bulletManager extends FlxGroup
 	{
 		public var numBullets:int = 30;
-		private var firstAvail:FlxObject;
+		private var firstAvail:playerBullet;
 		
 		public function bulletManager() 
 		{
@@ -22,10 +22,10 @@ import org.flixel.*;
 		
 		public function fire(bx:int, by:int):void
 		{
-			firstAvail = getfirstAvail();
-                                               
+			firstAvail = getFirstAvailable(playerBullet) as playerBullet;
+			 
 			if(firstAvail)
-			{
+			{	
 				playerBullet(firstAvail).fire(bx, by);
 			}
 		}

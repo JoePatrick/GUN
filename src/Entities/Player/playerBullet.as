@@ -10,10 +10,11 @@ import org.flixel.*;
 		{
 			 super(0, 0);
                                                
-			makeGraphic(5,5,0x00ff00);
-                                               
+			makeGraphic(5, 5, 0xffaa1111);
+            maxVelocity.y = speed;
+			maxVelocity.x = speed;
 			exists = false;
-			
+			alive = false;
 		}
 		
 		public function fire(bx:int, by:int):void
@@ -22,6 +23,7 @@ import org.flixel.*;
 			y = by;
 			velocity.y = -speed;
 			exists = true;
+			alive = true;
 		}
 		
 		override public function update():void
@@ -30,6 +32,7 @@ import org.flixel.*;
 		
 			if (exists && y < -10)
 			{
+				alive = false;
 				exists = false;
 			}
 		
