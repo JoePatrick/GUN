@@ -21,7 +21,7 @@ import org.flixel.*;
 		{
 			x = bx;
 			y = by;
-			velocity.y = -speed;
+			velocity.x = -speed;
 			exists = true;
 			alive = true;
 		}
@@ -30,7 +30,7 @@ import org.flixel.*;
 		{             
 			super.update();
 		
-			if (exists && y < -10)
+			if (exists && x < -10)
 			{
 				alive = false;
 				exists = false;

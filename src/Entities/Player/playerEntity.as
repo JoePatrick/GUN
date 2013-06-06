@@ -27,18 +27,18 @@ import Entities.Levels.*;
 			acceleration.x = maxVelocity.x * 4;
 
 		
-		if (FlxG.keys.SPACE && isTouching(FlxObject.FLOOR))
+		if (FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR))
 			{
 				velocity.y = -maxVelocity.y / 2;
 			}
 		
-		if (FlxG.keys.SPACE && (FlxG.keys.RIGHT && isTouching(FlxObject.RIGHT)))
+		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.RIGHT && isTouching(FlxObject.RIGHT)))
 			{
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = -maxVelocity.x;
 			}
 		
-		if (FlxG.keys.SPACE && (FlxG.keys.LEFT && isTouching(FlxObject.LEFT)))
+		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.LEFT && isTouching(FlxObject.LEFT)))
 			{
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = maxVelocity.x;
