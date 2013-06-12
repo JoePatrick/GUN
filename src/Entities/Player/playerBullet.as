@@ -17,11 +17,11 @@ import org.flixel.*;
 			alive = false;
 		}
 		
-		public function fire(bx:int, by:int):void
+		public function fire(position:FlxPoint, velocity:FlxPoint):void
 		{
-			x = bx;
-			y = by;
-			velocity.x = -speed;
+			x = position.x;
+			y = position.y;
+			this.velocity = velocity;
 			exists = true;
 			alive = true;
 		}

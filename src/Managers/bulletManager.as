@@ -20,13 +20,13 @@ import org.flixel.*;
 			
 		}
 		
-		public function fire(bx:int, by:int):void
+		public function fire(position:FlxPoint, velocity:FlxPoint):void
 		{
 			firstAvail = getFirstAvailable(playerBullet) as playerBullet;
 			 
 			if(firstAvail)
 			{	
-				playerBullet(firstAvail).fire(bx, by);
+				playerBullet(firstAvail).fire(position, velocity);
 			}
 		}
 
