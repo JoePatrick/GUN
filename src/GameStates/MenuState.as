@@ -7,6 +7,7 @@ package GameStates
 	{
 		public var title:FlxText;
 		public var click:FlxText;
+		public var controls:FlxText;
 		
 		public function MenuState() 
 		{
@@ -18,8 +19,13 @@ package GameStates
 			click.alignment = "center";
 			click.size = 8;
 			
+			controls = new FlxText(20, FlxG.height - 70, FlxG.width - 40, "X to Shoot Arrow Keys to Move");
+			controls.alignment = "center";
+			controls.size = 8;
+			
 			add(title);
 			add(click);
+			add(controls);
 			
 			FlxG.mouse.show();
 			
