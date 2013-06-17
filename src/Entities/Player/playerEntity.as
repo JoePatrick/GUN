@@ -5,7 +5,7 @@ import Entities.Levels.*;
                
 	public class playerEntity extends FlxSprite
 	{
-		public var facing:uint;
+		public var face:uint;
 		
 		public function playerEntity(x:uint, y:uint)
 		{
@@ -25,12 +25,12 @@ import Entities.Levels.*;
 		if (FlxG.keys.LEFT)
 		{
 			acceleration.x = -maxVelocity.x * 4;
-			facing = 1;
+			face = 1;
 		}
 		if (FlxG.keys.RIGHT)
 		{
 			acceleration.x = maxVelocity.x * 4;
-			facing = 0;
+			face = 0;
 		}
 		
 		if (FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR))
@@ -49,15 +49,17 @@ import Entities.Levels.*;
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = maxVelocity.x;
 			}
+		
+	
 			
 		 if (FlxG.keys.justPressed("X"))
 			{
 				
-			if (facing = 1)
+			if (face == 1)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( -100, 0));
 				}
-			if (facing = 0)
+			if (face == 0)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( +100, 0));
 				}
@@ -65,7 +67,7 @@ import Entities.Levels.*;
 		
 			super.update();
 			
-			FlxG.collide(Registry.level1 ,Registry.player);
+			
 		}
 	}
 

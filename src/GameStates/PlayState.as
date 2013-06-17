@@ -32,7 +32,8 @@ package GameStates
 			
 			FlxG.bgColor = 0xffaaaaaa;
 			
-			FlxG.collide(Registry.level1,Registry.player);
+			FlxG.collide(Registry.level1, Registry.player);
+			//FlxG.collide(Registry.bullets, Registry.level1);
 		}
 		
 	}

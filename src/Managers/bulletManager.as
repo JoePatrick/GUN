@@ -6,7 +6,7 @@ import org.flixel.*;
 
 	public class bulletManager extends FlxGroup
 	{
-		public var numBullets:int = 30;
+		public var numBullets:int = 20;
 		private var firstAvail:playerBullet;
 		
 		public function bulletManager() 

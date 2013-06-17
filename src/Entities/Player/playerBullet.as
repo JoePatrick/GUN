@@ -14,7 +14,7 @@ import org.flixel.*;
             maxVelocity.y = speed;
 			maxVelocity.x = speed;
 			exists = false;
-			alive = false;
+
 		}
 		
 		public function fire(position:FlxPoint, velocity:FlxPoint):void
@@ -23,18 +23,24 @@ import org.flixel.*;
 			y = position.y;
 			this.velocity = velocity;
 			exists = true;
-			alive = true;
 		}
 		
 		override public function update():void
 		{             
 			super.update();
+			
+			
 		
-			if (exists && x < -10)
+		 if (exists && x < -10) 
 			{
-				alive = false;
 				exists = false;
 			}
+		if (exists && x < 10)
+		{
+			exists = false;
+		}
+		
+			
 		
 		}
 		
