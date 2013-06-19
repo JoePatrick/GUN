@@ -2,27 +2,40 @@ package Entities.Player
 {
 	
 import org.flixel.*;
-import Entities.Levels.*;
+import Entities.*;
 
 	public class playerCollision extends FlxSprite
 	{
+		public var onwall:uint;
 		
 		public function playerCollision(x:uint, y:uint)
 		{
 			super(x, y);
-			makeGraphic(11, 13, 0xffaa2222);
+			makeGraphic(11, 13, 0x00aa1111);
 			maxVelocity.x = 80;
 			maxVelocity.y = 200;
 			acceleration.y = 200;
-			drag.x = maxVelocity.x * 4;
-			x = 10;
-			y = 230; 
+			drag.x = maxVelocity.x * 4; 
+			
 		}
 		
 		override public function update():void
 		{ 
-			super.update();
 			
+			
+			if (isTouching(FlxObject.LEFT))
+			{
+				onwall == 1;
+			}
+			
+			if (isTouching(FlxObject.RIGHT))
+			{
+				onwall == 2;
+			}
+			
+			x = Registry.player.x;
+			y = Registry.player.y; 
+			super.update();
 		}
 		
 	}

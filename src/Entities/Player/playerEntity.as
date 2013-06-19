@@ -1,11 +1,11 @@
 package Entities.Player 
 {
 import org.flixel.*;
-import Entities.Levels.*;
+import Entities.*;
                
 	public class playerEntity extends FlxSprite
 	{
-		public var face:uint;
+		
 		
 		public function playerEntity(x:uint, y:uint)
 		{
@@ -17,21 +17,23 @@ import Entities.Levels.*;
 			drag.x = maxVelocity.x * 4;
 			x = 10;
 			y = 220; 
+			
 		}
 		
                                
 		override public function update():void
-		{             
+		{ 
+		
 			acceleration.x = 0;
 		if (FlxG.keys.LEFT)
 		{
 			acceleration.x = -maxVelocity.x * 4;
-			face = 1;
+			facing == FlxObject.LEFT;
 		}
 		if (FlxG.keys.RIGHT)
 		{
 			acceleration.x = maxVelocity.x * 4;
-			face = 0;
+			facing == FlxObject.RIGHT;
 		}
 		
 		if (FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR))
@@ -56,11 +58,11 @@ import Entities.Levels.*;
 		 if (FlxG.keys.justPressed("X"))
 			{
 				
-			if (face == 1)
+			if (facing == FlxObject.LEFT)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( -100, 0));
 				}
-			if (face == 0)
+			if (facing == FlxObject.RIGHT)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( +100, 0));
 				}
