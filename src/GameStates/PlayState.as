@@ -19,7 +19,10 @@ package GameStates
 			Registry.level1 = new levelEntity();
 			Registry.level1.loadMap(FlxTilemap.arrayToCSV(Registry.levels.level1map,40), FlxTilemap.ImgAuto, 0, 0, FlxTilemap.AUTO);
 			add(Registry.level1);
-	
+			
+			Registry.playerC = new playerCollision(FlxG.width / 2 - 12, FlxG.height - 40);
+			add(Registry.playerC);
+			
 			Registry.player = new playerEntity(FlxG.width / 2 - 12, FlxG.height - 40);
 			add(Registry.player);
 			
@@ -33,6 +36,7 @@ package GameStates
 			FlxG.bgColor = 0xffaaaaaa;
 			
 			FlxG.collide(Registry.level1, Registry.player);
+			FlxG.collide(Registry.level1, Registry.playerC);
 			//FlxG.collide(Registry.bullets, Registry.level1);
 		}
 		

@@ -9,6 +9,8 @@ package
 	{
 		public static var player:playerEntity;
 		
+		public static var playerC:playerCollision;
+		
 		public static var bullets:bulletManager;
         
 		public static var level1:levelEntity;

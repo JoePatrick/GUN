@@ -10,7 +10,7 @@ import Entities.Levels.*;
 		public function playerEntity(x:uint, y:uint)
 		{
 			super(x, y);
-			makeGraphic(10,12,0xffaa1111);
+			makeGraphic(10, 12, 0xffaa1111);
 			maxVelocity.x = 80;
 			maxVelocity.y = 200;
 			acceleration.y = 200;
@@ -18,6 +18,7 @@ import Entities.Levels.*;
 			x = 10;
 			y = 220; 
 		}
+		
                                
 		override public function update():void
 		{             
