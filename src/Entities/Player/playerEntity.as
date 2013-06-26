@@ -5,7 +5,7 @@ import Entities.*;
                
 	public class playerEntity extends FlxSprite
 	{
-		
+		public var face:uint;
 		
 		public function playerEntity(x:uint, y:uint)
 		{
@@ -16,24 +16,25 @@ import Entities.*;
 			acceleration.y = 200;
 			drag.x = maxVelocity.x * 4;
 			x = 10;
-			y = 220; 
+			y = 220;
 			
 		}
 		
                                
 		override public function update():void
 		{ 
-		
+			face == 0;
+			
 			acceleration.x = 0;
 		if (FlxG.keys.LEFT)
 		{
 			acceleration.x = -maxVelocity.x * 4;
-			facing == FlxObject.LEFT;
+			face = 0;
 		}
 		if (FlxG.keys.RIGHT)
 		{
 			acceleration.x = maxVelocity.x * 4;
-			facing == FlxObject.RIGHT;
+			face = 1;
 		}
 		
 		if (FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR))
@@ -41,13 +42,13 @@ import Entities.*;
 				velocity.y = -maxVelocity.y / 2;
 			}
 		
-		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.RIGHT && isTouching(FlxObject.RIGHT)))
+		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.RIGHT && (Registry.playerC.onwall == 2) ))
 			{
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = -maxVelocity.x;
 			}
 		
-		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.LEFT && isTouching(FlxObject.LEFT)))
+		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.LEFT && (Registry.playerC.onwall == 1)))
 			{
 				velocity.y = -maxVelocity.y / 2;
 				velocity.x = maxVelocity.x;
@@ -58,11 +59,11 @@ import Entities.*;
 		 if (FlxG.keys.justPressed("X"))
 			{
 				
-			if (facing == FlxObject.LEFT)
+			if (face == 0)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( -100, 0));
 				}
-			if (facing == FlxObject.RIGHT)
+			if (face == 1)
 				{
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( +100, 0));
 				}

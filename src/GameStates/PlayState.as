@@ -37,7 +37,6 @@ package GameStates
 			
 			FlxG.collide(Registry.level1, Registry.player);
 			FlxG.collide(Registry.level1, Registry.playerC);
-			//FlxG.collide(Registry.bullets, Registry.level1);
 		}
 		
 	}
