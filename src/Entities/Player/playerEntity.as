@@ -6,6 +6,7 @@ import Entities.*;
 	public class playerEntity extends FlxSprite
 	{
 		public var face:uint;
+		public  static var onWall:Boolean;
 		
 		public function playerEntity(x:uint, y:uint)
 		{
@@ -18,12 +19,13 @@ import Entities.*;
 			x = 10;
 			y = 220;
 			
+			
 		}
 		
                                
 		override public function update():void
 		{ 
-			face == 0;
+			//face == 0;
 			
 			acceleration.x = 0;
 		if (FlxG.keys.LEFT)
@@ -34,24 +36,26 @@ import Entities.*;
 		if (FlxG.keys.RIGHT)
 		{
 			acceleration.x = maxVelocity.x * 4;
+			
 			face = 1;
 		}
 		
-		if (FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR))
+		if ((FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR)) || ((FlxG.keys.justPressed("SPACE") && !isTouching(FlxObject.FLOOR) && (onWall = true))))
 			{
 				velocity.y = -maxVelocity.y / 2;
-			}
-		
-		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.RIGHT && (Registry.playerC.onwall == 2) ))
-			{
-				velocity.y = -maxVelocity.y / 2;
-				velocity.x = -maxVelocity.x;
-			}
-		
-		if (FlxG.keys.justPressed("SPACE") && (FlxG.keys.LEFT && (Registry.playerC.onwall == 1)))
-			{
-				velocity.y = -maxVelocity.y / 2;
-				velocity.x = maxVelocity.x;
+				
+				if (onWall)
+				{
+					if (face == 1)
+					{
+						velocity.x = -maxVelocity.x / 2;
+					}
+				
+					if (face == 0)
+					{
+						velocity.x = maxVelocity.x / 2;
+					}
+				}
 			}
 		
 	
@@ -68,7 +72,19 @@ import Entities.*;
 					Registry.bullets.fire(new FlxPoint(x, y), new FlxPoint( +100, 0));
 				}
 			}	
+			
+			if (isTouching(FlxObject.LEFT))
+			{
+				face = 0;
+				onWall = true;
+			}
+
+			else if (isTouching(FlxObject.RIGHT))
+			{
 		
+				face = 1;
+				onWall = true;
+			}
 			super.update();
 			
 			

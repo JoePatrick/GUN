@@ -6,35 +6,24 @@ import Entities.*;
 
 	public class playerCollision extends FlxSprite
 	{
-		public var onwall:uint;
+		
 		
 		public function playerCollision(x:uint, y:uint)
 		{
 			super(x, y);
-			makeGraphic(11, 13, 0xffaa1111);
-			maxVelocity.x = 80;
-			maxVelocity.y = 200;
-			acceleration.y = 200;
-			//drag.x = maxVelocity.x * 4; 
-			
+			makeGraphic(16, 12, 0xff00ff00);	
 		}
 		
 		override public function update():void
 		{ 
+			x = Registry.player.x - (width - Registry.player.width) / 2;
+			y = Registry.player.y;
 			
-			
-			if (isTouching(FlxObject.LEFT))
+			if (playerEntity.onWall == true && !isTouching(FlxObject.WALL))
 			{
-				onwall == 1;
+				playerEntity.onWall = false;
 			}
 			
-			if (isTouching(FlxObject.RIGHT))
-			{
-				onwall == 2;
-			}
-			
-			x = Registry.player.x;
-			y = Registry.player.y; 
 			super.update();
 		}
 		
