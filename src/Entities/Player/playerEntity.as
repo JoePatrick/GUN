@@ -18,6 +18,7 @@ import Entities.*;
 			drag.x = maxVelocity.x * 4;
 			x = 10;
 			y = 220;
+			onWall == false;
 			
 			
 		}
@@ -42,9 +43,9 @@ import Entities.*;
 		
 		if ((FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR)) || ((FlxG.keys.justPressed("SPACE") && !isTouching(FlxObject.FLOOR) && (onWall = true))))
 			{
-				velocity.y = -maxVelocity.y / 2;
 				
-				if (onWall)
+				
+				if (onWall == true)
 				{
 					if (face == 1)
 					{
@@ -55,6 +56,10 @@ import Entities.*;
 					{
 						velocity.x = maxVelocity.x / 2;
 					}
+				else if 
+				{
+					velocity.y = -maxVelocity.y / 2;
+				}
 				}
 			}
 		
