@@ -1,10 +1,12 @@
 package Entities.Player 
 {
 import org.flixel.*;
+import Managers.bulletManager;
 
 	public class playerBullet extends FlxSprite
 	{
-		public var speed:int = 200;
+		public var speed:int = 500;
+		
 		
 		public function playerBullet() 
 		{
@@ -14,6 +16,8 @@ import org.flixel.*;
             maxVelocity.y = speed;
 			maxVelocity.x = speed;
 			exists = false;
+			
+			
 
 		}
 		
@@ -23,24 +27,26 @@ import org.flixel.*;
 			y = position.y;
 			this.velocity = velocity;
 			exists = true;
+			
 		}
 		
 		override public function update():void
 		{             
-			super.update();
 			
 			
-		
-		 if (exists && x < -10) 
-			{
-				exists = false;
-			}
-		if (exists && x < 10)
+		 if (exists && x < -10)
 		{
 			exists = false;
 		}
 		
-			
+		else if (exists && x > 350)
+		{
+			exists = false;
+		}
+		
+
+		
+			super.update();
 		
 		}
 		

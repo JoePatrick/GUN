@@ -11,7 +11,7 @@ import Entities.*;
 		public function playerCollision(x:uint, y:uint)
 		{
 			super(x, y);
-			makeGraphic(16, 12, 0xff00ff00);	
+			makeGraphic(14, 12, 0x00000000);	
 		}
 		
 		override public function update():void

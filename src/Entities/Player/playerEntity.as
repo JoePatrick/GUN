@@ -16,9 +16,10 @@ import Entities.*;
 			maxVelocity.y = 200;
 			acceleration.y = 200;
 			drag.x = maxVelocity.x * 4;
-			x = 10;
-			y = 220;
+			x == 100;
+			y == 220;
 			onWall == false;
+			
 			
 			
 		}
@@ -26,7 +27,8 @@ import Entities.*;
                                
 		override public function update():void
 		{ 
-			//face == 0;
+			trace(x);
+			trace(y);
 			
 			acceleration.x = 0;
 		if (FlxG.keys.LEFT)
@@ -41,25 +43,22 @@ import Entities.*;
 			face = 1;
 		}
 		
-		if ((FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR)) || ((FlxG.keys.justPressed("SPACE") && !isTouching(FlxObject.FLOOR) && (onWall = true))))
+		if ((FlxG.keys.justPressed("SPACE") && isTouching(FlxObject.FLOOR)) || ((FlxG.keys.justPressed("SPACE") && !isTouching(FlxObject.FLOOR) && (onWall == true))))
 			{
-				
+				velocity.y = -maxVelocity.y / 2;
 				
 				if (onWall == true)
 				{
 					if (face == 1)
 					{
-						velocity.x = -maxVelocity.x / 2;
+						velocity.x = -maxVelocity.x ;
 					}
 				
 					if (face == 0)
 					{
-						velocity.x = maxVelocity.x / 2;
+						velocity.x = maxVelocity.x ;
 					}
-				else if 
-				{
-					velocity.y = -maxVelocity.y / 2;
-				}
+			
 				}
 			}
 		

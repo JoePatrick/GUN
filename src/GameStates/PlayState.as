@@ -1,8 +1,8 @@
 package GameStates
 {
+	import Entities.Level.*;
 	import Entities.Player.*;
 	import org.flixel.*;
-	import Entities.Levels.*;
 	import Managers.*;
 				
 	public class PlayState extends FlxState
@@ -16,15 +16,17 @@ package GameStates
 			Registry.levels = new levelManager();
 			add(Registry.levels);
 			
-			Registry.level1 = new levelEntity();
-			Registry.level1.loadMap(FlxTilemap.arrayToCSV(Registry.levels.level1map,40), FlxTilemap.ImgAuto, 0, 0, FlxTilemap.AUTO);
-			add(Registry.level1);
-			
 			Registry.playerC = new playerCollision(FlxG.width / 2 - 12, FlxG.height - 40);
 			add(Registry.playerC);
 			
-			Registry.player = new playerEntity(FlxG.width / 2 - 12, FlxG.height - 40);
+			Registry.player = new playerEntity(32,220);
 			add(Registry.player);
+			
+			Registry.exit = new exitEntity(290,16);
+			add(Registry.exit);
+			
+			//Registry.coins =  new coinEntities();
+			//add(Registry.coins);
 			
 			
 		}
@@ -35,8 +37,9 @@ package GameStates
 			
 			FlxG.bgColor = 0xffaaaaaa;
 			
-			FlxG.collide(Registry.level1, Registry.player);
-			FlxG.collide(Registry.level1, Registry.playerC);
+			FlxG.overlap(Registry.exit,Registry.player,Registry.exit.win);
+			FlxG.collide(Registry.levels.level1, Registry.player);
+			FlxG.collide(Registry.levels.level1, Registry.playerC);
 		}
 		
 	}

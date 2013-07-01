@@ -1,9 +1,9 @@
 package 
 {
  import org.flixel.*;
- import Entities.Player.*;
  import Managers.*;
- import Entities.Levels.*;
+ import Entities.Player.*;
+ import Entities.Level.*;
                
     public class Registry
 	{
@@ -12,10 +12,12 @@ package
 		public static var playerC:playerCollision;
 		
 		public static var bullets:bulletManager;
-        
-		public static var level1:levelEntity;
 		
 		public static var levels:levelManager;
+		
+		public static var exit:exitEntity;
+		
+		//public static var coins:coinEntities;
 		
 		public function Registry()
 		{

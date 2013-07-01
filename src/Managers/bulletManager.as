@@ -6,8 +6,9 @@ import org.flixel.*;
 
 	public class bulletManager extends FlxGroup
 	{
-		public var numBullets:int = 20;
+		public var numBullets:int = 30;
 		private var firstAvail:playerBullet;
+	
 		
 		public function bulletManager() 
 		{
@@ -18,7 +19,10 @@ import org.flixel.*;
 				add(new playerBullet())
 			}
 			
+			
 		}
+		
+		
 		
 		public function fire(position:FlxPoint, velocity:FlxPoint):void
 		{
@@ -29,8 +33,14 @@ import org.flixel.*;
 				playerBullet(firstAvail).fire(position, velocity);
 			}
 		}
-
 		
+		override public function update():void
+		{
+		
+			super.update();
+		}
+
+	
 	}
 
 }

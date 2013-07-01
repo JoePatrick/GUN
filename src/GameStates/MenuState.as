@@ -11,6 +11,8 @@ package GameStates
 		
 		public function MenuState() 
 		{
+			FlxG.bgColor = 0xff000000;
+			
 			title = new FlxText(20, 10, FlxG.width - 40, "GunFace");
 			title.alignment = "center";
 			title.size = 22;
